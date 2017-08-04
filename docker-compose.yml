@@ -35,10 +35,11 @@ services:
       MESOS_WORK_DIR: /tmp/mesos
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup
-      - /usr/local/bin/docker:/usr/bin/docker
+      - /usr/bin/docker:/usr/bin/docker
       - /var/run/docker.sock:/var/run/docker.sock
     depends_on:
       - zk
+    privileged: true
 
   # slave-two:
   #   image: mesosphere/mesos-slave:1.0.1-2.0.93.ubuntu1404
